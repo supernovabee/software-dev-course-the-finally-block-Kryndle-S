@@ -45,8 +45,14 @@ Step 4: Test Your Solution
 function processFile(fileName, fileData) {
   try {
     // TODO: Add input validation here
-    
-    // TODO: Implement simulated file processing here
+    if (!fileName){
+      throw new ReferenceError("Invalid File Name")
+    } if (typeof fileData !== "string") {
+      throw new TypeError("Invalid File Data. Must be a string!")
+    } if (fileData = " "){
+      throw new Error("File cannot be empty.")
+    } 
+      // TODO: Implement simulated file processing here
     console.log(`Processing file: ${fileName}`);
     console.log(`File content: ${fileData}`);
     
@@ -55,6 +61,8 @@ function processFile(fileName, fileData) {
   } catch (err) {
     // TODO: Implement error handling
     console.error(err);
+  } finally {
+    console.log("Closing open files.")
   }
   // TODO: Implement a finally block to close resources
 }
